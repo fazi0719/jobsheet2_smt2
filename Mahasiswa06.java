@@ -12,11 +12,15 @@ public class Mahasiswa06 {
     }
 
     void ubahKelas(String kelasBaru) {
-        kelas = kelasBaru;
+        this.kelas = kelasBaru;
     }
 
-    void updateIPK(double ipkBaru) {
-        ipk = ipkBaru;
+   void updateIPK(double ipkBaru) {
+    if (ipkBaru >= 0.0 && ipkBaru <= 4.0) {
+        this.ipk = ipkBaru; //this Dipakai supaya tidak tertukar dengan variabel lokal/parameter di dalam method.
+     } else {
+            System.out.println("Nilai IPK tidak valid. Harus antara 0.0 dan 4.0.");
+    }
     }
 
     String nilaiKinerja (){
@@ -30,4 +34,12 @@ public class Mahasiswa06 {
             return "Kinerja Kurang";
         }
     }
+    public Mahasiswa06 () { //konstruktor default tanpa parameter
     }
+    public Mahasiswa06 (String nm, String nim, double ipk, String kls) { // konstruktor berparameter 
+        nama = nm;
+        this.nim = nim;
+        this.ipk = ipk;
+        kelas = kls;
+    }
+}
